@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.geometry.Insets?>
+
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.control.TextArea?>
+<VBox fx:id="containerPrincipale" prefHeight="300" prefWidth="400" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="m2l.desktop.gestion.controller.AjoutClimController"
+      styleClass="fond" stylesheets="@style.css">
+
+
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+
+    <HBox fx:id="letitre" prefHeight="60" prefWidth="320" styleClass="boxes">
+        <children>
+            <Label minHeight="16" maxHeight="30" minWidth="69" text="Enregistrement d'un nouveau climatiseur"
+                   fx:id="titre" styleClass="titre"/>
+
+        </children>
+    </HBox>
+
+    <HBox fx:id="infosMarque" prefHeight="100" prefWidth="320">
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <children>
+            <Label minHeight="16" maxHeight="30" minWidth="69" text="Marque : " fx:id="marque" styleClass="champ"/>
+            <TextArea minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" fx:id="valmarque"/>
+            <Label minHeight="40" maxHeight="40" minWidth="40" text="*" styleClass="etoile"/>
+            <Label minHeight="16" maxHeight="30" minWidth="150" fx:id="erreur_marque" text="Ce champs est requis"
+                   visible="false" styleClass="message_erreur"/>
+
+        </children>
+    </HBox>
+
+
+    <HBox fx:id="infosModele" prefHeight="100" prefWidth="320">
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <children>
+            <Label minHeight="16" maxHeight="30" minWidth="69" text="Modèle : " fx:id="modele" styleClass="champ"/>
+            <TextArea minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" fx:id="valmodele"/>
+            <Label minHeight="40" maxHeight="40" minWidth="40" text="*" styleClass="etoile"/>
+            <Label minHeight="16" maxHeight="30" minWidth="150" fx:id="erreur_modele" text="Ce champs est requis"
+                   visible="false" styleClass="message_erreur"/>
+
+        </children>
+    </HBox>
+
+    <HBox fx:id="infosPuissance" prefHeight="100" prefWidth="320">
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <children>
+            <Label minHeight="16" maxHeight="100" minWidth="69" text="Puissance : " fx:id="puissance"
+                   styleClass="champ"/>
+            <TextArea minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" fx:id="valpuiss"/>
+            <Label minHeight="40" maxHeight="40" minWidth="40" text="*" styleClass="etoile"/>
+            <Label minHeight="16" maxHeight="30" minWidth="150" fx:id="erreur_puissance"
+                   text="Ce champs est requis. Saississez un nombre." visible="false" styleClass="message_erreur"/>
+
+
+        </children>
+    </HBox>
+
+    <HBox fx:id="infosClasse" prefHeight="100" prefWidth="320">
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <children>
+            <Label minHeight="16" maxHeight="100" minWidth="69" text="Classe : " fx:id="classe" styleClass="champ"/>
+            <TextArea minHeight="16" maxHeight="30" minWidth="69" text="NC" maxWidth="100" fx:id="valclasse"/>
+        </children>
+    </HBox>
+
+
+    <HBox fx:id="infosSon" prefHeight="100" prefWidth="320">
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <children>
+            <Label minHeight="16" maxHeight="100" minWidth="69" text="Niveau sonore : " fx:id="son" styleClass="champ"/>
+            <TextArea minHeight="16" maxHeight="30" minWidth="69" text="0" maxWidth="100" fx:id="valson"/>
+
+        </children>
+    </HBox>
+
+
+    <HBox fx:id="infosConso" prefHeight="100" prefWidth="320">
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <children>
+            <Label minHeight="16" maxHeight="100" minWidth="69" text="Consommation électrique : " fx:id="conso"
+                   styleClass="champ"/>
+            <TextArea minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" text="0" fx:id="valconso"/>
+
+        </children>
+    </HBox>
+
+
+    <HBox fx:id="bouton" prefHeight="50" prefWidth="320" alignment="BASELINE_CENTER" spacing="45">
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25"/>
+        </padding>
+
+        <children>
+
+            <Button text="Enregistrer!" onAction="#enregistrer_nouveau_climatiseur" fx:id="button"/>
+            <Button text="Annuler" onAction="#retourListe" fx:id="cancelbut"/>
+        </children>
+    </HBox>
+</VBox>

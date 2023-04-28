@@ -106,7 +106,7 @@ public class ListeInterventionsJourController implements Initializable{
         try
         {
             //configuration de la base de données
-            String url1 = "jdbc:mysql://localhost:3337/gestM2L?&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            String url1 = "jdbc:mysql://localhost:3337/gestm2l?&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             //utilisateur pour connexion à la BDD
             String user = "gestuser";
             //mot de passe pour connexion à la BDD

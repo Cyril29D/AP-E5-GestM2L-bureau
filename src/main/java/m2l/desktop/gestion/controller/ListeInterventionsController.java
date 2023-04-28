@@ -107,11 +107,11 @@ public class ListeInterventionsController implements Initializable {
         try
         {
             //configuration de la base de données
-            String url1 = "jdbc:mysql://localhost:3337/gestM2L?&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            String url1 = "jdbc:mysql://localhost:3337/gestm2l?&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             //utilisateur pour connexion à la BDD
-            String user = "m2luser";
+            String user = "gestuser";
             //mot de passe pour connexion à la BDD
-            String password = "m2lpass";
+            String password = "gestpass";
 
             //établissement de la connexion à la base de données
             connexion = (Connection) DriverManager.getConnection(url1, user, password);
@@ -130,7 +130,7 @@ public class ListeInterventionsController implements Initializable {
                     //définition de la requête
 
 
-                    String sql = "SELECT I.date, I.heure, S.nom as nomSalle, P.nom AS nomIntervenant, prenom, telephone FROM interventions I join salles S on S.id=idSalle join intervenants P on P.numero = numeroIntervenant";
+                    String sql = "SELECT I.date, I.heure, S.nom as nomSalle, P.nom AS nomIntervenant, prenom, telephone FROM interventions I join salles S on S.numeroSalle=numSalle join intervenants P on P.numeroInter = numIntervenant";
                     System.out.println(this.getClass()+" - requête :"+sql);
                     //exécution de la requête
                     ResultSet rs = stmt.executeQuery(sql);

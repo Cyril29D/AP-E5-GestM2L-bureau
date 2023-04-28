@@ -26,7 +26,7 @@ public class Model_Clim {
         {
             //configuration de la base de données
             String url1 = "jdbc:mysql://localhost:3337/" +
-                    "gestM2L?&useJDBCCompliantTimezoneShift=true" +
+                    "gestm2l?&useJDBCCompliantTimezoneShift=true" +
                     "&useLegacyDatetimeCode=false&serverTimezone=UTC";
             //utilisateur pour connexion à la BDD
             String user = "gestuser";
@@ -60,7 +60,7 @@ public class Model_Clim {
             stmt = connexion.createStatement();
 
             //définition de la requête
-            String sql = "SELECT climatiseurs.id,marque,modele, puissance, surfaceMin,surfaceMax,nom, batiment from climatiseurs JOIN salles on salles.id=idSalle";
+            String sql = "SELECT climatiseurs.id,marque,modele, puissance, surfaceMin,surfaceMax,nom, batiment from climatiseurs JOIN salles on salles.numeroSalle=numSalle";
             System.out.println("requête :"+sql);
             //exécution de la requête
             ResultSet rs = stmt.executeQuery(sql);

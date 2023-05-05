@@ -24,7 +24,7 @@
                     <TableColumn fx:id="salleCol" prefWidth="150" text="Salle"/>
                     <TableColumn fx:id="intervenantCol" prefWidth="150.0" text="Intervenant"/>
                     <TableColumn fx:id="contactCol" prefWidth="150" text="Contact intervenant"/>
-                    <TableColumn fx:id="motifCol" prefWidth="300" text="Motif intervention"/>
+                    <TableColumn fx:id="motifCol" prefWidth="300" text="Date d'intervention"/>
                     <!--SITUATION A : Finalisation de l’affichage l’onglet « Interventions du jour ».-->
                     <TableColumn fx:id="statutCol" prefWidth="300" text="Statut intervention"/>
                     <!--SITUATION A : Finalisation de l’affichage l’onglet « Interventions du jour ».-->

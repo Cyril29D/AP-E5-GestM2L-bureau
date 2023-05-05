@@ -18,7 +18,7 @@ public class GestM2L extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("accueil"), 1100, 700);
+        scene = new Scene(loadFXML("accueil"), 1000, 500);
         stage.setTitle("Gestion des locaux");
         stage.setScene(scene);
         stage.setResizable(false);

@@ -21,7 +21,7 @@ import java.net.URL;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -130,7 +130,7 @@ public class ListeInterventionsController implements Initializable {
                     //définition de la requête
 
 
-                    String sql = "SELECT date, I.heure, S.nom as nomSalle, P.nom AS nomIntervenant, prenom, telephone, motif FROM interventions I join salles S on S.numeroSalle=numSalle join intervenants P on P.numeroInter = numIntervenant";
+                    String sql = "SELECT I.heure, S.nom as nomSalle, P.nom AS nomIntervenant, prenom, telephone, motif, date FROM interventions I join salles S on S.numeroSalle=numSalle join intervenants P on P.numeroInter = numIntervenant";
                     System.out.println(this.getClass()+" - requête :"+sql);
                     //exécution de la requête
                     ResultSet rs = stmt.executeQuery(sql);
@@ -145,7 +145,7 @@ public class ListeInterventionsController implements Initializable {
                         //créationd e l'interventionavec le statut et la date en plus
                         liste_des_interventions_du_jour.add(new AffichageIntervention(new Salle(rs.getString("nomSalle")),
                                 new Intervenant(rs.getString("nomIntervenant"),rs.getString("prenom"),Integer.valueOf(rs.getString("telephone"))),
-                                new Intervention(rs.getString("motif"),rs.getString("date"))
+                                new Intervention(rs.getString("motif"),rs.getDate("date"))
                         ));
                     }
 
@@ -159,10 +159,12 @@ public class ListeInterventionsController implements Initializable {
                     //mise en correspondance de la colonne "contactcol" du tableview
                     //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
                     contactCol_all.setCellValueFactory(cell->cell.getValue().getContactProperty());
-
+                    //mise en correspondance de la colonne "motifCol" du tableview
+                    //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
                     motifCol_all.setCellValueFactory(cell->cell.getValue().getMotifProperty());
-
-                //    dateCol_all.setCellValueFactory(cell->cell.getValue().getDateProperty());
+                    //mise en correspondance de la colonne "dateCol" du tableview
+                    //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
+                    dateCol_all.setCellValueFactory(cell->cell.getValue().getDateProperty());
                     //création de la liste qui correspondra au contenu
                     //du tableview
                     donnees_interventions_all=FXCollections.observableList(liste_des_interventions_du_jour);

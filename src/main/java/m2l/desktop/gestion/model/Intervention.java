@@ -14,8 +14,8 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Intervention
 {
-    private Date date;
-    private String heure;
+    public Date date;
+
     private String motif;
     private String statut;
 
@@ -48,6 +48,8 @@ public class Intervention
     public String getMotif() {
         return motif;
     }
+   // public Date getDate(){return date;}
+
 
     public void setMotif(String motif) {
         this.motif=motif;
@@ -66,9 +68,7 @@ public class Intervention
     public SimpleStringProperty getStatutProperty() {
         return new SimpleStringProperty(this.statut);
     }
-    public SimpleStringProperty getDateProperty() {
-        return new SimpleStringProperty(this.date.toString());
-    }
+    public SimpleStringProperty getDateProperty() {return new SimpleStringProperty(this.date.toString());}
 
 
 }

@@ -1,15 +1,15 @@
 package m2l.desktop.gestion.controller;
 
 import java.net.URL;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +18,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import m2l.desktop.gestion.model.AffichageIntervention;
+import m2l.desktop.gestion.model.Intervenant;
+import m2l.desktop.gestion.model.Intervention;
+import m2l.desktop.gestion.model.Salle;
 
 /**
  *
@@ -54,8 +57,7 @@ public class ListeInterventionsJourController implements Initializable{
     @FXML
     public TableColumn <AffichageIntervention,String>statutCol;
     //SITUATION A : Finalisation de l’affichage l’onglet « Interventions du jour ».
-    @FXML
-    public TableColumn <AffichageIntervention,String>dateCol;
+
 
 
 
@@ -127,6 +129,43 @@ public class ListeInterventionsJourController implements Initializable{
                     stmt = connexion.createStatement();
 
                     //définition de la requête
+                    String sql = "SELECT I.heure, S.nom as nomSalle, P.nom AS nomIntervenant, prenom, telephone, motif, date FROM interventions I join salles S on S.numeroSalle=numSalle join intervenants P on P.numeroInter = numIntervenant";
+                    System.out.println(this.getClass()+" - requête :"+sql);
+                    //exécution de la requête
+                    ResultSet rs = stmt.executeQuery(sql);
+
+
+                    //parcours des enregistrements résultats,
+                    //création de nouveaux objets "salle" et
+                    //ajout de cet objet dans la liste
+                    while(rs.next())
+                    {
+                        //SITUATION A : Finalisation de l’affichage l’onglet « Interventions du jour ».
+                        //créationd e l'interventionavec le statut et la date en plus
+                        liste_des_interventions_du_jour.add(new AffichageIntervention(new Salle(rs.getString("nomSalle")),
+                                new Intervenant(rs.getString("nomIntervenant"),rs.getString("prenom"),Integer.valueOf(rs.getString("telephone"))),
+                                new Intervention(rs.getString("motif"),rs.getDate("date"))
+                        ));
+                    }
+                    //mise en correspondance de la colonne "salleCol" du tableview
+                    //avec la propriété "nom" de la salle de la classe AffichageIntervention
+                    salleCol.setCellValueFactory(cell->cell.getValue().getNomSalleProperty());
+                    //mise en correspondance de la colonne "intervenantCol" du tableview
+                    //avec la concaténation "prénom nom" de l'intervenant de la classe AffichageIntervention
+                    intervenantCol.setCellValueFactory(cell->cell.getValue().getIntervenantProperty());
+
+                    //mise en correspondance de la colonne "contactcol" du tableview
+                    //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
+                    contactCol.setCellValueFactory(cell->cell.getValue().getContactProperty());
+                    //mise en correspondance de la colonne "motifCol" du tableview
+                    //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
+                    motifCol.setCellValueFactory(cell->cell.getValue().getMotifProperty());
+                    //création de la liste qui correspondra au contenu
+                    //du tableview
+                    donnees_interventions_all= FXCollections.observableList(liste_des_interventions_du_jour);
+                    //mise en correspondance de la liste "donneesIntJour"
+                    //avec le tableview "todayInt"
+
 
                     //SITUATION A : Finalisation de l’affichage l’onglet « Interventions du jour ».
                     //Ajout du statut dans la projection + clause sur la date

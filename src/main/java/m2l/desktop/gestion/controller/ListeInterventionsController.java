@@ -160,10 +160,10 @@ public class ListeInterventionsController implements Initializable {
                     //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
                     contactCol_all.setCellValueFactory(cell->cell.getValue().getContactProperty());
                     //mise en correspondance de la colonne "motifCol" du tableview
-                    //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
+                    //avec la propriété "motif" de l'intervention de la classe AffichageIntervention
                     motifCol_all.setCellValueFactory(cell->cell.getValue().getMotifProperty());
                     //mise en correspondance de la colonne "dateCol" du tableview
-                    //avec la propriété "telephone" de l'intervention de la classe AffichageIntervention
+                    //avec la propriété "date" de l'intervention de la classe AffichageIntervention
                     dateCol_all.setCellValueFactory(cell->cell.getValue().getDateProperty());
                     //création de la liste qui correspondra au contenu
                     //du tableview

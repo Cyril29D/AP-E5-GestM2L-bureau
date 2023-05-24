@@ -17,8 +17,8 @@
                 <TableColumn fx:id="salleCol_all" prefWidth="150" text="Salle"/>
                 <TableColumn fx:id="intervenantCol_all" prefWidth="150.0" text="Intervenant"/>
                 <TableColumn fx:id="contactCol_all" prefWidth="150" text="Contact intervenant"/>
-                <TableColumn fx:id="motifCol_all" prefWidth="150" text="motif intervenant"/>
-                <TableColumn fx:id="dateCol_all" prefWidth="150" text="date intervenant"/>
+                <TableColumn fx:id="motifCol_all" prefWidth="250" text="motif intervenant"/>
+                <TableColumn fx:id="dateCol_all" prefWidth="250" text="date intervenant"/>
             </columns>
         </TableView>
 

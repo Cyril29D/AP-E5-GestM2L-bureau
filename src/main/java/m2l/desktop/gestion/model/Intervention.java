@@ -48,7 +48,7 @@ public class Intervention
     public String getMotif() {
         return motif;
     }
-   // public Date getDate(){return date;}
+
 
 
     public void setMotif(String motif) {
@@ -59,7 +59,7 @@ public class Intervention
         return new SimpleStringProperty(this.motif);
     }
 
-
+    public SimpleStringProperty getDateProperty() {return new SimpleStringProperty(this.date.toString());}
 
 
 
@@ -68,7 +68,7 @@ public class Intervention
     public SimpleStringProperty getStatutProperty() {
         return new SimpleStringProperty(this.statut);
     }
-    public SimpleStringProperty getDateProperty() {return new SimpleStringProperty(this.date.toString());}
+
 
 
 }

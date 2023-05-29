@@ -11,6 +11,34 @@
 <VBox id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass"
       xmlns:fx="http://javafx.com/fxml/1" spacing="30.0">
 <children>
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label fx:id="salle" text="Salle :" />
+        <TextArea fx:id="valSalle" minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" />
+
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label fx:id="intervenant" text="Intervenant :" />
+        <TextArea fx:id="valIntervenant" minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label fx:id="contact" text="Contact :" />
+        <TextArea fx:id="valContact" minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label fx:id="motif" text="Motif :" />
+        <TextArea fx:id="valMotif" minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label fx:id="date" text="Date :" />
+        <TextArea fx:id="valDate" minHeight="16" maxHeight="30" minWidth="69" maxWidth="100" />
+    </HBox>
+
+
+    <Button alignment="CENTER" fx:id="primaryButton" text="Valider et enregistrer" />
 
 </children>
 <padding>

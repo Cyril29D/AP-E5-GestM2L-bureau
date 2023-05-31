@@ -1,0 +1,33 @@
+
+Déclencheur
+
+
+DELIMITER $$
+
+CREATE  TRIGGER crenau_intervention
+ON interventions
+FOR EACH ROW
+UPDATE OF heure_fin > heure_debut 
+END$$
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+note statut :
+
+
+dans le fichier listeInterventionController.java :
+
+-récupération de l'élément « statutCol_all » définis dans la vue (fxml) :
+
+ -modifier la requête sql en ajoutant "statut"
+-puis ajouter statut dans la liste intervention
+-- mise en correspondance de la colonne  statutCol du tableview puis avec les propriétés « date » et «motif » de l'intervention de la classe « AffichageIntervention » :

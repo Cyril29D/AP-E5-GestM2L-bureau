@@ -17,13 +17,13 @@ public class AffichageIntervention {
     private final Intervention intervention;
     private final Intervenant intervenant;
     private final Salle salle;
-    private final SimpleStringProperty dateProperty; // Ajout du champ date
+
     public AffichageIntervention(Salle s, Intervenant p, Intervention i )
     {
         this.salle=s;
         this.intervenant=p;
         this.intervention=i;
-        this.dateProperty = new SimpleStringProperty(); // Initialisation de la date
+
     }
 
     public SimpleStringProperty getNomSalleProperty() {
@@ -39,10 +39,12 @@ public class AffichageIntervention {
         return new SimpleIntegerProperty(intervenant.getTelephone());
     }
 
-    public SimpleStringProperty getMotifProperty() {return new SimpleStringProperty(intervention.getMotif());   }
+    public SimpleStringProperty getMotifProperty() {
+        return new SimpleStringProperty(intervention.getMotif());   }
 
 
-   public SimpleStringProperty getDateProperty() {return new SimpleStringProperty(intervention.date.toString());}
+   public SimpleStringProperty getDateProperty() {
+        return new SimpleStringProperty(intervention.date.toString());}
 
 
 }

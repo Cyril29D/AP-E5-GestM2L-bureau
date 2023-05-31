@@ -62,6 +62,7 @@ public class ListeInterventionsController implements Initializable {
 
 
 
+
     /**
      * SITUATION B : Mise en place l’onglet « Voir toutes les interventions ».
      */
